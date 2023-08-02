@@ -33,7 +33,22 @@ public class Program {
 		Worker worker = new Worker(workerName, WorkerLevel.valueOf(workerLevel), baseSalary, new Department(departmentName));
 		
 		System.out.print("How many contracts to this worker?");
-	
+		int n = sc.nextInt();
+		
+		for (int i = 1; i <= n; i++) {
+			
+			System.out.println("Enter contract #" + i + "data:");
+			System.out.print("Date (DD/MM/YYYY: )");
+			Date contractDate = sdf.parse(sc.next());
+			System.out.print("Value per hour: ");
+			double valuePerHour = sc.nextDouble();
+			System.out.print("Duration hours: ");
+			int hours = sc.nextInt();
+			
+			HourContract contract = new HourContract(contractDate, valuePerHour, hours);
+			
+			worker.addContract(contract);
+		}
 			
 		}
 		
